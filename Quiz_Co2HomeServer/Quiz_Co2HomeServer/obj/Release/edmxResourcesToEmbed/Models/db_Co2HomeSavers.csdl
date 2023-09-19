@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_Co2HomeSaversModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Refrigilator" Relationship="Self.FK__tbl_Refri__Categ__4BAC3F29" FromRole="tbl_Category" ToRole="tbl_Refrigilator" />
+  </EntityType>
+  <EntityType Name="tbl_Refrigilator">
+    <Key>
+      <PropertyRef Name="RefrigilatorID" />
+    </Key>
+    <Property Name="RefrigilatorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="IPAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="NoOfRefrigilators" Type="Int32" />
+    <Property Name="Make" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Watts" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="TotalWatts" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="tbl_Category" Relationship="Self.FK__tbl_Refri__Categ__4BAC3F29" FromRole="tbl_Refrigilator" ToRole="tbl_Category" />
+  </EntityType>
+  <Association Name="FK__tbl_Refri__Categ__4BAC3F29">
+    <End Role="tbl_Category" Type="Self.tbl_Category" Multiplicity="0..1" />
+    <End Role="tbl_Refrigilator" Type="Self.tbl_Refrigilator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="tbl_Refrigilator">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_Co2HomeSaversEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_Category" EntityType="Self.tbl_Category" />
+    <EntitySet Name="tbl_Refrigilator" EntityType="Self.tbl_Refrigilator" />
+    <AssociationSet Name="FK__tbl_Refri__Categ__4BAC3F29" Association="Self.FK__tbl_Refri__Categ__4BAC3F29">
+      <End Role="tbl_Category" EntitySet="tbl_Category" />
+      <End Role="tbl_Refrigilator" EntitySet="tbl_Refrigilator" />
+    </AssociationSet>
+    <FunctionImport Name="UpsertRefrigerator">
+      <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+      <Parameter Name="IPAddress" Mode="In" Type="String" />
+      <Parameter Name="NoOfRefrigilators" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/OEUb+SDekq8TPLBhGXr6gAAAAACAAAAAAAQZgAAAAEAACAAAAC5p6u8uvDKMzX0T39pnvytxG7yoJvs3QF5IurIPxJPyAAAAAAOgAAAAAIAACAAAABJU8qB2eH8WkgIAQnv2DOUSPEupzJABdO8VNODS2lohyAAAAAjj26SMDI2wykWiijV1N9ItxSWsb49sKlP2L3q5Ob4KkAAAACh1FEmvkLJTFytHz3vYhblUu42D1+9yrwdXbPURNkWr2oy8DvgV8rz5S3aHtO22Dwg8Wn13iSW5Gnn9BgA0sRr</EncryptedPassword>
+    <_PublishTargetUrl>ftp://ftp.co2homesaver.net/home3/cotwohom/public_ftp</_PublishTargetUrl>
+    <History>False|2023-08-29T09:23:43.4586550Z;False|2023-08-29T02:23:28.7633840-07:00;False|2023-08-29T01:43:19.8484835-07:00;</History>
+  </PropertyGroup>
+</Project>

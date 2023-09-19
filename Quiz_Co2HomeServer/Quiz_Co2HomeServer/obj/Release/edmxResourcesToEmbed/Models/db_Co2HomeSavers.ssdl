@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_Co2HomeSaversModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tbl_Refrigilator">
+    <Key>
+      <PropertyRef Name="RefrigilatorID" />
+    </Key>
+    <Property Name="RefrigilatorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="IPAddress" Type="nvarchar" MaxLength="150" />
+    <Property Name="NoOfRefrigilators" Type="int" />
+    <Property Name="Make" Type="nvarchar" MaxLength="150" />
+    <Property Name="Model" Type="nvarchar" MaxLength="150" />
+    <Property Name="Watts" Type="nvarchar" MaxLength="150" />
+    <Property Name="TotalWatts" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <Association Name="FK__tbl_Refri__Categ__4BAC3F29">
+    <End Role="tbl_Category" Type="Self.tbl_Category" Multiplicity="0..1" />
+    <End Role="tbl_Refrigilator" Type="Self.tbl_Refrigilator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="tbl_Refrigilator">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="UpsertRefrigerator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+    <Parameter Name="IPAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="NoOfRefrigilators" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="db_Co2HomeSaversModelStoreContainer">
+    <EntitySet Name="tbl_Category" EntityType="Self.tbl_Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Refrigilator" EntityType="Self.tbl_Refrigilator" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tbl_Refri__Categ__4BAC3F29" Association="Self.FK__tbl_Refri__Categ__4BAC3F29">
+      <End Role="tbl_Category" EntitySet="tbl_Category" />
+      <End Role="tbl_Refrigilator" EntitySet="tbl_Refrigilator" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

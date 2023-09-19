@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_Co2HomeSaversModelStoreContainer" CdmEntityContainer="db_Co2HomeSaversEntities">
+    <EntitySetMapping Name="tbl_Category">
+      <EntityTypeMapping TypeName="db_Co2HomeSaversModel.tbl_Category">
+        <MappingFragment StoreEntitySet="tbl_Category">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Refrigilator">
+      <EntityTypeMapping TypeName="db_Co2HomeSaversModel.tbl_Refrigilator">
+        <MappingFragment StoreEntitySet="tbl_Refrigilator">
+          <ScalarProperty Name="RefrigilatorID" ColumnName="RefrigilatorID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="NoOfRefrigilators" ColumnName="NoOfRefrigilators" />
+          <ScalarProperty Name="Make" ColumnName="Make" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Watts" ColumnName="Watts" />
+          <ScalarProperty Name="TotalWatts" ColumnName="TotalWatts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="UpsertRefrigerator" FunctionName="db_Co2HomeSaversModel.Store.UpsertRefrigerator" />
+  </EntityContainerMapping>
+</Mapping>

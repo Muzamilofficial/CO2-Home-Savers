@@ -1,0 +1,31 @@
+﻿@{
+    Layout = null; // Optional, if you don't want to use a layout for this view
+}
+@using (Html.BeginForm("q4update", "MakeQ4Extra", FormMethod.Post))
+{
+    for (int i = 1; i <= ViewBag.NoOfRefrigilators; i++)
+    {
+        <div class="Que_2_div">
+            <h6 class="R1_Title">
+                R @i watts
+            </h6>
+            <input type="text" class="input_field" placeholder="492" readonly name="makes">
+        </div>
+    }
+    <button type="submit">Submit</button>
+}
+    <script>
+        // Function to generate a random number within a range
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Get all input fields with class "input_field"
+        var inputFields = document.querySelectorAll('.input_field');
+
+        // Loop through each input field and set a random value
+        inputFields.forEach(function (inputField) {
+            var randomValue = getRandomNumber(110, 240);
+            inputField.value = randomValue;
+        });
+    </script>
